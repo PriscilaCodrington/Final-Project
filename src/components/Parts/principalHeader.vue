@@ -1,10 +1,8 @@
 <script>
 import axios from "axios";
 export default {
-  name: "principalHeader",
-  onmount(){
-    
-  },
+  //name: "principalHeader",
+  
   data() {
     return {
       info: null,
@@ -16,11 +14,11 @@ export default {
   methods: {
     infoHeader() {
       axios
-        .get("https://imdb-api.com/en/API/Top250Movies/k_gurak224")
+        .get("https://imdb-api.com/en/API/MostPopularMovies/k_gurak224")
         .then((response) => {
-            this.movies.pop()
-          for (let i = 1; i < 7; i++) {
-            this.info = response.data.items[i];
+            
+          for (let i = 27; i < 32; i++) {
+          this.info = response.data.items[i];
             console.log(this.info);
             this.id = this.info.id;
             console.log(this.id);
@@ -30,11 +28,12 @@ export default {
                 console.log(response.data);
                 let trailerInfo = response.data;
                 
-                let addNew = {title: trailerInfo.title,
-                year: trailerInfo.year,
-                image: trailerInfo.thumbnailUrl,
-                linkTrailer: trailerInfo.linkEmbed, 
-                description: trailerInfo.videoDescription,
+                let addNew = {
+                    title: trailerInfo.title,
+                    year: trailerInfo.year,
+                    image: trailerInfo.thumbnailUrl,
+                    linkTrailer: trailerInfo.linkEmbed, 
+                    description: trailerInfo.videoDescription,
                 }
                 
                 this.movies.push(addNew)
@@ -48,18 +47,15 @@ export default {
 };
 </script>
 <template>
+
   <section id="carrusel-contenido" v-for="movie in movies" @click="infoHeader"> 
-    <v-img :src="movie.image" />  
+    <img :src="movie.image" alt="img for movie" />  
     <h1>{{ movie.title }} APT</h1>
     <p>{{movie.description }}</p>
     <p>{{ movie.year }}</p>
-    <button type="submit" :src="movie.linkTrailer">Ver video</button>
+    <a :href="movie.linkTrailer" target="_blank">Ver video</a>
   </section>
 </template>
 <style>
-section #carrusel-contenido {
-  padding: 50%;
-  margin: 50%;
-  background-color: #000;
-}
+
 </style>
