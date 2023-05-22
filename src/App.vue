@@ -12,9 +12,7 @@ export default{
     lateralMenu,
     principalHeader,
     carouselMovie,
-    Carousel,
-    Slide,
-    Pagination,
+    
    
   }
 }
@@ -28,5 +26,12 @@ export default{
 </template>
 
 <style>
-
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
 </style>
