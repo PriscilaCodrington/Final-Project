@@ -11,9 +11,7 @@ export default {
     return {
       info: null,
       id: null,
-      movies:[{
-       
-      }],
+      background:[],
     };
   },
   
@@ -23,16 +21,17 @@ export default {
 };
 </script>
 <template>
-<div>
+<carousel :items-to-show="1">
+    <slide v-for="slide in 10" :key="slide">
+      {{ slide }}
+    </slide>
 
-</div>
-   <section v-for="movie in movies" @click="infoHeader"> 
-    <img :src="movie.image" alt="img for movie" />  
-    <h1>{{ movie.title }} APT</h1>
-    <p>{{movie.description }}</p>
-    <p>{{ movie.year }}</p>
-    <a :href="movie.linkTrailer" target="_blank">Ver video</a>
-  </section> 
+    <template #addons>
+      <navigation />
+      <pagination />
+    </template>
+  </carousel>
+</template>   
 </template>
 <style>
 
