@@ -13,7 +13,7 @@ export default{
 
 <template>
    <header class="prinHeader" @click="scrollHeader()" >
-      <a href="#"><img src="#" alt="principal-logo" class="logo" /></a>
+      <a href="#"><img src="../data/img/Artboard 11-8.png" alt="principal-logo" class="logo" /></a>
       <input type="text" id="searchbar" name="search" placeholder="Search by title..." >
       <div class="account">
          <img src="#" alt="" srcset="">
@@ -35,6 +35,7 @@ export default{
       transition: 0.7s;
       padding: 30px 20px;
       z-index: 10;
+      background-color: #fff;
   }
    header .logo{
       position: relative;

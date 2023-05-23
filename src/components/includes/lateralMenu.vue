@@ -17,7 +17,7 @@ export default{
     </section>   
 </template>
   
-<style scoped>
+<style scoped >
 .vertical-bar {
   position: fixed;
   top: 50%;

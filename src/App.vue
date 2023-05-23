@@ -22,7 +22,7 @@ export default{
   <mainHeader />
   <lateralMenu />
    <principalHeader /> 
-  <carouselMovie />
+  <!-- <carouselMovie /> -->
 </template>
 
 <style>
@@ -33,5 +33,6 @@ export default{
 	text-decoration: none;
 	border: none;
 	outline: none;
+  
 }
 </style>

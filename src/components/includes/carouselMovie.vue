@@ -101,7 +101,7 @@ export default {
   </transition>
 </div>
 </template>
-<style>
+<style scoped>
  .contenedor{
 width:100vw,
 
