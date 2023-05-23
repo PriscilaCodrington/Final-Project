@@ -21,7 +21,7 @@ export default{
 <template>
   <mainHeader />
   <lateralMenu />
-  <!-- <principalHeader /> -->
+   <principalHeader /> 
   <carouselMovie />
 </template>
 
