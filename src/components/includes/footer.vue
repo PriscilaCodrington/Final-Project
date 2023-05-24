@@ -11,39 +11,7 @@ export default{
           <div class="col-sm-12 col-md-6">
             <img src="../data/img/Artboard 14-8.png" alt="Logo"> </div>
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Categories</h6>
-            <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">About Us</a></li>
-              <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-            </ul>
-          </div>
-        </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Made by Priscila Codrington &copy; 2023 All Rights Reserved by</p>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-            </ul>
-          </div>
+          
         </div>
       </div>
 </footer>
@@ -58,10 +26,8 @@ export default{
   color:#737373;
 }
 .site-footer .container{
-    display: grid;
-    grid-template-columns: 3;
-	justify-content: space-between;
-	align-items: center;
+    
+  width: 90%;
 }
 .site-footer hr
 {

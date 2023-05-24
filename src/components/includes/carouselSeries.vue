@@ -143,7 +143,7 @@ export default {
           <p class="">{{ infoCard.actorsMovie }}</p>
         </div>
       </div>
-      <button class="closebtn" @click="showCompleteInfo = false">Cerrar</button>
+      <button class="closebtn" @click="showCompleteInfo = false">✖️ Cerrar</button>
     </div>
   </transition>
 </template>
