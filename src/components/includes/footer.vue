@@ -9,7 +9,7 @@ export default{
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
-            <img src="../data/img/Artboard 14-8.png" alt="Logo"> </div>
+            <img src="https://i.ibb.co/BVf72ht/Artboard-14-8.png" alt="Logo"> </div>
 
           
         </div>
@@ -25,8 +25,8 @@ export default{
   line-height:24px;
   color:#737373;
 }
-.site-footer .container{
-    
+ .container{
+   margin: 0 auto;
   width: 90%;
 }
 .site-footer hr

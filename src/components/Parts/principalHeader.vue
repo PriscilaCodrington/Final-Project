@@ -56,7 +56,7 @@ margin: auto;
     font-size: 16px;
 	min-height: 40.62em;
 	color: #fff;
-	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(../data/img/Portada4.png);
+	background: linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(https://i.ibb.co/PTBYDfr/Portada4.png);
 	background-position: center center;
 	background-size: cover;
 	margin-bottom: 3.12em;
