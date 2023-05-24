@@ -2,76 +2,85 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import axios from "axios";
+
 import moviesData from '../data/movies.json'
+
 export default {
   name: 'carrouselmovie',
   mounted(){
      // invocar los métodos
-     this.infoCarousel();
+    this.infoCarousel();
     },
   components: {
     Carousel,
     Slide,
     Pagination,
     Navigation,
-  },
+
+},
   data() {
     return {
       info: null,
       id: null,
       showCompleteInfo:false,
-      movies: moviesData,
+      movies: [{}],
     };
   },
   methods: {
-    
-    // infoCarousel() {
-    //     this.movies.pop();
-    //   axios
-    //     .get("https://imdb-api.com/en/API/MostPopularMovies/k_gurak224")
-    //     .then((response) => {
-            
-    //       for (let i = 1; i < 10; i++) {
-    //       this.info = response.data.items[i];
-    //         //console.log(this.info);
-    //         this.id = this.info.id;
-    //         //console.log(this.id);
-    //        let moviePoster = this.info.image;
-            
-    //        axios
+      showInfo(index){
+        this.movies[index]= this.showCompleteInfo= true;
 
-    //          .get(`https://www.omdbapi.com/?apikey=9d183b39&i=${this.id}`)
-    //           .then((response) => {
-    //             //console.log(response.data);
-    //             let trailerInfo = response.data;
-                
-    //             let addNew = {
-    //                 title: trailerInfo.Title,
-    //                 year: trailerInfo.Year,
-    //                 image: trailerInfo.Poster,
-    //                 description: trailerInfo.Plot,
-    //                 actors: trailerInfo.Actors,
-    //                 genre: trailerInfo.Genre,
-    //                 duration: trailerInfo.Runtime,
+      },
+    infoCarousel() {
+        this.movies.pop();
+      axios
+        .get("https://imdb-api.com/en/API/MostPopularMovies/k_gurak224")
+        .then((response) => {
+            
+          for (let i = 1; i < 10; i++) {
+          this.info = response.data.items[i];
+            //console.log(this.info);
+            this.id = this.info.id;
+            //console.log(this.id);
+           let moviePoster = this.info.image;
+            
+           axios
 
-    //             }
+             .get(`https://www.omdbapi.com/?apikey=9d183b39&i=${this.id}`)
+              .then((response) => {
+                //console.log(response.data);
+                let trailerInfo = response.data;
                 
-    //             this.movies.push(addNew)
+                let addNew = {
+                    title: trailerInfo.title||trailerInfo.Title,
+                    year: trailerInfo.year||trailerInfo.Year, 
+                    image: trailerInfo.poster||trailerInfo.Poster,
+                    description: trailerInfo.plot||trailerInfo.Plot,
+                    actors: trailerInfo.actors||trailerInfo.Actors,
+                    genre: trailerInfo.genre||trailerInfo.Genre,
+                    duration: trailerInfo.runtime||trailerInfo.Runtime,
+
+                }
+                
+                this.movies.push(addNew)
                
 
-    //             console.log(this.movies)
-    //           });
-    //       }
-    //     });
-    // },
+                console.log(this.movies)
+              });
+          }
+        });
+    },
   },
 
 }
 </script>
 <template>
+  
 <div class="contenedor">
-     <carousel :items-to-show="4" :autoplay="3000" :wrapAround="false">
-    <slide  class="ShowCard" v-for="(movie, index) in movies" :key="movie">
+  <h1 class="titlePrincipal">Movies</h1>
+
+     <carousel :items-to-show="4" autoplay="4000" :wrapAround="true">
+    <slide  class="ShowCard" v-for="(movie, index) in movies" :key="index">
             <article @click="showCompleteInfo = true">
             <img class="posterImage" :src="movie.image" alt="img for movie" />  
             <h2 class=title>{{ movie.title }}</h2>
@@ -86,14 +95,14 @@ export default {
       <pagination />
     </template>
   </carousel>
- 
-  </div> 
-  <div class="movieTarget" v-for="(movie, index) in movies">
+ </div>
+   
+  <div class="movieTarget" v-for="(movie, index) in movies" :key="index">
   <transition name="fadein">
     <div class="modal-overlay" v-if="showCompleteInfo & index"></div>
   </transition>
   <transition name="fadein">
-    <div class="modal" v-if="showCompleteInfo">
+    <div class="modal" v-if="showCompleteInfo & index">
     <h3> {{movie.title}}</h3>
     <p>{{ movie.year }}</p>
     <button @click="showCompleteInfo = false">X cerrar</button>
@@ -103,13 +112,18 @@ export default {
 </template>
 <style scoped>
  .contenedor{
-width:100vw,
+width:90%;
+margin: auto;
+z-index: 10;
 
 }
+.contenedor .titlePrincipal{
+  font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
 article{
-
     height: 470px;
-    border: solid 1px #000;
 }
 .showcard{
     width: 260px;
@@ -120,8 +134,11 @@ article{
 }
  .posterImage{
     width: 260px;
-    height: 368px;
-    box-shadow: 0px -10px 10px rgba(0, 0, 0, 0.5);
+    height: 368px; 
+}
+.posterImage:hover, 
+.posterImage:focus {
+    transform: scale(1.02);
 }
 .title {
   position: absolute;
@@ -130,6 +147,12 @@ article{
   right: 0;
   text-align: center;
   color: #000;
+  margin-top: 1rem;
+  overflow: hidden;
+  font-size: 1.3rem;
+  text-overflow: ellipsis;
+  letter-spacing:normal;
+  white-space: nowrap;
 }
 
 .year {

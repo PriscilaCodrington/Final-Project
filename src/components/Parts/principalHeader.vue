@@ -1,7 +1,8 @@
-<script>
-import headerData from "../data/header.json"
+<script scoped>
+import searchBar from "../includes/searchBar.vue"
 import { ref } from "vue";
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import carouselMovie from "../includes/carouselMovie.vue";
 export default {
   //name: "principalHeader",
   mounted(){
@@ -12,41 +13,13 @@ export default {
     Slide,
     Pagination,
     Navigation,
+	searchBar,
   },
   data() {
     return {
       info: null,
       id: null,
-      background:[ 
-    {
-    url:" ../data/img/Portada1.png" ,
-    title: "Everything Everywhere All at Once",
-    year:"2022",
-    poster:"https://m.media-amazon.com/images/M/MV5BYTdiOTIyZTQtNmQ1OS00NjZlLWIyMTgtYzk5Y2M3ZDVmMDk1XkEyXkFqcGdeQXVyMTAzMDg4NzU0._V1_Ratio0.7027_AL_.jpg",
-    type:"Movie"
-},
-{
-    url:"../data/img/Portada2.png" ,
-    title: "Queen Charlotte: A Bridgerton Story",
-    year:"2023",
-    poster:"https://m.media-amazon.com/images/M/MV5BNWYwNzhhNzMtMWM2Yi00NzdlLTgxNmUtYWI2YTdiNmFmNzQwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_Ratio0.6757_AL_.jpg",
-    type:"Serie"
-},
-{
-    url:"../data/img/Portada4.png" ,
-    title: "Succession",
-    year:"2018 - 2023",
-    poster:"https://m.media-amazon.com/images/M/MV5BNWYwNzhhNzMtMWM2Yi00NzdlLTgxNmUtYWI2YTdiNmFmNzQwXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_Ratio0.6757_AL_.jpg",
-    type: "Serie"
-},
-{
-    url:"../data/img/Portada3.png" ,
-    title: "Asteroid City",
-    year:"2023",
-    poster:"https://m.media-amazon.com/images/M/MV5BNDJmMzY0ZGUtYWE1My00OWViLTg1NTctOWMwZWJlNDQzNGRiXkEyXkFqcGdeQXVyMjkwOTAyMDU../data._V1_Ratio0.6757_AL_.jpg",
-    type: "Movie"
-}]
-      ,
+
     };
   },
   
@@ -63,12 +36,13 @@ export default {
             <div class="contenedor">
                 <h1 class="title">Succession</h1>
                 <p class="description">Follow the lives of the Roy family as they contemplate their future once their aging father begins to step back from the media and entertainment conglomerate they control.</p>
-                <p class="year">2023</p> <p class="season">4 season</p>
+                <p class="year">2023    4 season</p>
                 <button class="btnPrincipal"> Añadir a Favoritos</button>
-                <button class="btnPrincipal"> <i class="fas fa-info-circle" />Mas informacion</button>
+                <button class="btnPrincipal"> Mas informacion</button>
             </div>
 
         </div>
+<searchBar />
     </main>
  
   
@@ -77,7 +51,7 @@ export default {
 
 .contenedor{
  width: 90%;
- height: 50%;
+margin: auto;
 }
 .principalMovie{
     font-size: 16px;
@@ -89,8 +63,64 @@ export default {
 	margin-bottom: 3.12em;
 	display: flex;
 	align-items: end;}
-    .principalMovie .contenedor {
+.principalMovie .contenedor {
 	margin: 0 auto;
 	margin-bottom: 6.25em;
+}
+.principalMovie .title{
+    font-weight: 600;
+	font-size: 3.12em;
+	margin-bottom: 0.4em;
+}
+.principalMovie .description {
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.75em;
+	max-width: 50%;
+	margin-bottom: 1.25em;
+}
+.principalMovie .btnPrincipal {
+	background: rgba(0,0,0, 0.5);
+	border: none;
+	border-radius: 0.31em;
+	padding: 0.93em 1.87em;
+	color: #fff;
+	margin-right: 1.25em;
+	cursor: pointer;
+	transition: .3s ease all;
+	font-size: 1.12em;
+}
+
+.principalMovie .btnPrincipal:hover {
+	background: #fff;
+	color: #000;
+}
+
+.principalMovie .year{
+font-weight: 600;
+font-size: 1em;
+padding-bottom: 10px;
+top: 5px;
+
+}
+/* ---- ----- ----- Media Queries ----- ----- ----- */
+@media screen and (max-width: 800px) {
+	header .logotipo {
+		margin-bottom: 10px;
+		font-size: 30px;
+	}
+
+	header .contenedor {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.principalMovie {
+		font-size: 14px;
+	}
+
+	.principalMovie .description {
+		max-width: 100%;
+	}
 }
 </style>

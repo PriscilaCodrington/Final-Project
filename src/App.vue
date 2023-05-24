@@ -1,28 +1,17 @@
 <script>
+import HomeView from './views/HomeView.vue';
 
-import mainHeader from './components/includes/mainHeader.vue'
-import lateralMenu from './components/includes/lateralMenu.vue'
-import principalHeader from './components/Parts/principalHeader.vue'
-import carouselMovie from './components/includes/carouselMovie.vue'
 
 export default{
   name: 'App',
   components:{
-    mainHeader,
-    lateralMenu,
-    principalHeader,
-    carouselMovie,
-    
-   
-  }
+    HomeView
+}
 }
 </script>
 
 <template>
-  <mainHeader />
-  <lateralMenu />
-   <principalHeader /> 
-  <!-- <carouselMovie /> -->
+  <HomeView />
 </template>
 
 <style>

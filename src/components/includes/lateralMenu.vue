@@ -29,7 +29,7 @@ export default{
   justify-content: space-between;
   width: 60px; /* Ajusta el ancho según tus necesidades */
   height:50%; /* Ajusta la altura según tus necesidades */
-  background-color: #F4F6F6; /* Ajusta el color de fondo según tus necesidades */
+  background-color: #48484844; /* Ajusta el color de fondo según tus necesidades */
   padding: 10px;
 }
 
