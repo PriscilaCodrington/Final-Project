@@ -15,8 +15,7 @@ export default defineComponent({
           alt="principal-logo"
           class="logo"
       /></router-link>
-      <a href="@/views/searchView.vue">Ver</a>
-      <RouterLink to="/about" >Hola</RouterLink>
+      <RouterLink to="/about" ></RouterLink>
   
       <!-- <input
         type="text"
