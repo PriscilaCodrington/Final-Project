@@ -10,8 +10,8 @@ export default defineComponent({
 <template>
   <header class="prinHeader" >
     <div class="contenedor">
-     <router-link to='/'><img
-          src="../data/img/Artboard 11-8.png"
+     <router-link to='/'><img 
+          src="https://i.ibb.co/tcBSwSm/Artboard-11-8.png"
           alt="principal-logo"
           class="logo"
       /></router-link>
