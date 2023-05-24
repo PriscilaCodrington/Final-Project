@@ -25,7 +25,7 @@ export default {
       let completeCard = {
         nameTitle: trailerInfo.Title,
         yearMovie: trailerInfo.Year,
-        descriptionMovie: trailerInfo.Description,
+        descriptionMovie: trailerInfo.Plot,
         posterMovie: trailerInfo.Poster,
         genreMovie: trailerInfo.Genre,
         durationMovie: trailerInfo.Duration,
